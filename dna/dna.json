@@ -1,0 +1,49 @@
+{
+    "Version": 1,
+    "UUID": "75f3af10-ad07-11e8-aaa5-7470fd4b1aa9",
+    "Name": "test-app",
+    "Properties": {
+        "description": "first holo app",
+        "language": "en"
+    },
+    "PropertiesSchemaFile": "properties_schema.json",
+    "RequiresVersion": 26,
+    "DHTConfig": {
+        "HashType": "sha2-256",
+        "RedundancyFactor": 0
+    },
+    "Zomes": [
+        {
+            "Name": "readerWriter",
+            "Description": "read and write data",
+            "CodeFile": "readerWriter.js",
+            "RibosomeType": "js",
+            "BridgeFuncs": null,
+            "Config": null,
+            "Entries": [
+                {
+                    "Name": "holoText",
+                    "DataFormat": "string",
+                    "Sharing": "public"
+                }
+            ],
+            "Functions": [
+                {
+                    "Name": "holoTextWrite",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "holoTextRead",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "holoTextReadFromDHT",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                }
+            ]
+        }
+    ]
+}
