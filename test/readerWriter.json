@@ -5,20 +5,20 @@
             "Zome": "readerWriter",
             "FnName": "holoTextWrite",
             "Input": "Hello World",
-            "Output": "%h%"
+            "Output": "%h1%"
         },
         {
             "Convey": "read a holoText entry from local chain",
             "Zome": "readerWriter",
             "FnName": "holoTextRead",
-            "Input": "%h%",
+            "Input": "%h1%",
             "Output": "Hello World"
         },
         {
             "Convey": "read a holoText entry from DHT",
             "Zome": "readerWriter",
             "FnName": "holoTextReadFromDHT",
-            "Input": "%h%",
+            "Input": "%h1%",
             "Output": "Hello World"
         },
         {
@@ -27,6 +27,41 @@
             "FnName": "holoTextWrite",
             "Input": "The approach to unit testing frameworks used for Check originated with Smalltalk, which is a late binding object-oriented language supporting reflection. Writing a framework for C requires solving some special problems that frameworks for Smalltalk, Java or Python don’t have to face. In all of those language, the worst that a unit test can do is fail miserably, throwing an exception of some sort. In C, a unit test is just as likely to trash its address space as it is to fail to meet its test requirements, and if the test framework sits in the same address space, goodbye test framework.",
             "ErrMsg": "Validation Failed"
+        },
+        {
+            "Convey": "write another holoText entry",
+            "Zome": "readerWriter",
+            "FnName": "holoTextWrite",
+            "Input": "Another text, little longer.",
+            "Output": "%h1%"
+        },
+        {
+            "Convey": "read another holoText entry from local chain",
+            "Zome": "readerWriter",
+            "FnName": "holoTextRead",
+            "Input": "%h1%",
+            "Output": "Another text, little longer."
+        },
+        {
+            "Convey": "read link entry from local chain",
+            "Zome": "readerWriter",
+            "FnName": "holoTextRead",
+            "Input": "%h1%",
+            "Output": "Another text, little longer."
+        },
+        {
+            "Convey": "find links by agent",
+            "Zome": "readerWriter",
+            "FnName": "getHoloTextLinks",
+            "Input": "%key%",
+            "Output": 2
+        },
+        {
+            "Convey": "get all links",
+            "Zome": "readerWriter",
+            "FnName": "getAllLinks",
+            "Input": "%key%",
+            "Output": 0
         }
     ]
 }

@@ -25,6 +25,10 @@
                     "Name": "holoText",
                     "DataFormat": "string",
                     "Sharing": "public"
+                },
+                {
+                    "Name": "holoLink",
+                    "DataFormat": "links"
                 }
             ],
             "Functions": [
@@ -40,6 +44,16 @@
                 },
                 {
                     "Name": "holoTextReadFromDHT",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "getHoloTextLinks",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "getAllLinks",
                     "CallingType": "string",
                     "Exposure": "public"
                 }
