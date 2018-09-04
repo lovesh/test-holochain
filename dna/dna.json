@@ -82,6 +82,16 @@
                     "Name": "sendReceiveCheck",
                     "CallingType": "string",
                     "Exposure": "public"
+                },
+                {
+                    "Name": "introspect",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "updateSelf",
+                    "CallingType": "string",
+                    "Exposure": "public"
                 }
             ]
         },

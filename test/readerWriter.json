@@ -67,14 +67,12 @@
             "Convey": "get all links",
             "Zome": "readerWriter",
             "FnName": "getAllLinks",
-            "Input": "%key%",
             "Output": 0
         },
         {
             "Convey": "get all texts",
             "Zome": "readerWriter",
             "FnName": "getAllTexts",
-            "Input": "%key%",
             "Output": 0
         },
         {
@@ -98,14 +96,12 @@
             "Convey": "get all texts",
             "Zome": "readerWriter",
             "FnName": "getAllTexts",
-            "Input": "%key%",
             "Output": 0
         },
         {
             "Convey": "get all links",
             "Zome": "readerWriter",
             "FnName": "getAllLinks",
-            "Input": "%key%",
             "Output": 0
         },
         {
@@ -126,14 +122,30 @@
             "Convey":"List bridges",
             "Zome": "readerWriter",
             "FnName": "listBridges",
-            "Input": "test",
             "Output": 0
         },
         {
             "Convey":"send Receive Check",
             "Zome": "readerWriter",
             "FnName": "sendReceiveCheck",
-            "Input": "test",
+            "Output": 0
+        },
+        {
+            "Convey":"Print info about self",
+            "Zome": "readerWriter",
+            "FnName": "introspect",
+            "Output": 0
+        },
+        {
+            "Convey":"Update agent identity",
+            "Zome": "readerWriter",
+            "FnName": "updateSelf",
+            "Output": 0
+        },
+        {
+            "Convey":"Print info about self",
+            "Zome": "readerWriter",
+            "FnName": "introspect",
             "Output": 0
         }
     ]

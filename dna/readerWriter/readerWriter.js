@@ -38,7 +38,7 @@ function getHoloTextLinks(base) {
   return links.length;
 }
 
-function getAllLinks(dummy_arg) {
+function getAllLinks() {
   var result = query({
     Return: {
       Hashes: true,
@@ -68,8 +68,12 @@ function holoTextUpdate(args) {
   return hash;
 }
 
-function listBridges(dummy_arg) {
+function listBridges() {
   debug(JSON.stringify(getBridges()));
+  return 0;
+}
+
+function introspect() {
   debug(JSON.stringify(App));
   debug(JSON.stringify(App.Agent));
   debug(JSON.stringify(App.Key));
@@ -78,7 +82,13 @@ function listBridges(dummy_arg) {
   return 0;
 }
 
-function getAllTexts(dummy_arg) {
+function updateSelf() {
+  debug("Updating self");
+  updateAgent({Identity:"lovesh@example.com", Revocation:"testing revocation"});
+  return 0;
+}
+
+function getAllTexts() {
   var result = query({
     Return: {
       Hashes: true,
