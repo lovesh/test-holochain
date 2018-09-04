@@ -4,7 +4,7 @@
  **/
 function anchor(anchor){
   var anchorType = {anchorType: anchor.anchorType, anchorText: ''};
-  var rootAnchortype =  {anchorType: 'anchorTypes', anchorText: ''};
+  var rootAnchortype =  {anchorType: 'anchorTypes', anchorText: '', 'isRoot': true};
   var anchorHash = makeHash('anchor', anchor);
   var anchorGet = get(anchorHash);
   
@@ -59,6 +59,7 @@ function anchors(type){
   return links;
 }
 
+// Return the entires of all anchors of the given type
 function anchorEntries(type){
   var links = anchors(type);
   var entries = [];

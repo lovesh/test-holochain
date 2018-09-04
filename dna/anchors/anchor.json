@@ -7,6 +7,9 @@
 		},
 		"anchorText": {
 			"type": "string"
+		},
+		"someProp": {
+			"type": "string"
 		}
 	},
     "required": ["anchorType"]
