@@ -56,8 +56,59 @@
                     "Name": "getAllLinks",
                     "CallingType": "string",
                     "Exposure": "public"
+                },
+                {
+                    "Name": "createAnchorToText",
+                    "CallingType": "string",
+                    "Exposure": "public"
                 }
             ]
-        }
+        },
+        {
+            "Name": "anchors",
+            "Description": "anchors mixin",
+            "RibosomeType": "js",
+            "CodeFile": "anchors.js",
+            "Config": {
+              "ErrorHandling": "throwErrors"
+            },
+            "BridgeFuncs": ["anchor", "exists", "anchorEntries"],
+            "Entries": [
+              {
+                "Name": "anchor",
+                "DataFormat": "json",
+                "SchemaFile": "anchor.json",
+                "Sharing": "public"
+              },
+              {
+                "Name": "anchor_link",
+                "DataFormat": "links"
+              }
+            ],
+            "Functions": [
+              {
+                "Name": "anchor",
+                "CallingType": "json",
+                "Exposure": "public"
+              },
+              {
+                "Name": "exists",
+                "CallingType": "json",
+                "Exposure": "public"
+              },
+              {
+                "Name": "anchors",
+                "CallingType": "string",
+                "ReturnType": "json",
+                "Exposure": "public"
+              },
+              {
+                "Name": "anchorEntries",
+                "CallingType": "string",
+                "ReturnType": "json",
+                "Exposure": "public"
+              }
+            ]
+          }
     ]
 }

@@ -62,6 +62,13 @@
             "FnName": "getAllLinks",
             "Input": "%key%",
             "Output": 0
+        },
+        {
+            "Convey": "create anchor",
+            "Zome": "readerWriter",
+            "FnName": "createAnchorToText",
+            "Input": "%h1%",
+            "Output": "%h1%"
         }
     ]
 }

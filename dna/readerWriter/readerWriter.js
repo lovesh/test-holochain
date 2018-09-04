@@ -9,25 +9,25 @@ function genesis() {
 function holoTextWrite(text) {
   var hash = commit('holoText', text);
   var me = App.Key.Hash;
-  debug("App key hash is" + me);
+  debug("App key hash is " + me);
   var link_hash = commit("holoLink",{    
     Links: [
       {Base: me, Link: hash, Tag: "holoText"}
     ]
   });
-  debug("Link hash is" + link_hash);
+  debug("Link hash is " + link_hash);
   return hash;
 }
 
 function holoTextRead(hash) {
   var r = get(hash, { GetMask: HC.GetMask.All });
-  debug(r);
+  debug("Local read for for " + hash + " : "+ r);
   return get(hash, { Local: true })
 }
 
 function holoTextReadFromDHT(hash) {
   var r = get(hash, {StatusMask: HC.Status.Default });
-  debug(r);
+  debug("DHT read for for " + hash + " : "+ r);
   return get(hash)
 }
 
@@ -50,6 +50,13 @@ function getAllLinks(dummy_arg) {
   });
   debug(result);
   return 0;
+}
+
+function createAnchorToText(hash) {
+  var text = holoTextRead(hash);
+  var anchorHash = call("anchors", "anchor", {"anchorType": "holoText", "anchorText": text});
+  debug("anchorHash "+ anchorHash);
+  return JSON.parse(anchorHash);
 }
 
 function validateText(text) {
