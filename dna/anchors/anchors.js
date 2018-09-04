@@ -79,6 +79,11 @@ function bridgeGenesis(side, dna, appData)
   return true;
 }
 
+function listBridges(dummy_arg) {
+  debug(JSON.stringify(getBridges()));
+  return 0;
+}
+
 function validatePut(entry_type,entry,header,pkg,sources) {
   // debug('Anchors validatePut:' + sources)
   return validateCommit(entry_type,entry,header,pkg,sources);

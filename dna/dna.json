@@ -61,6 +61,27 @@
                     "Name": "createAnchorToText",
                     "CallingType": "string",
                     "Exposure": "public"
+                },
+                {
+                  "Name": "listBridges",
+                  "CallingType": "string",
+                  "ReturnType": "json",
+                  "Exposure": "public"
+                },
+                {
+                    "Name": "holoTextUpdate",
+                    "CallingType": "json",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "getAllTexts",
+                    "CallingType": "string",
+                    "Exposure": "public"
+                },
+                {
+                    "Name": "sendReceiveCheck",
+                    "CallingType": "string",
+                    "Exposure": "public"
                 }
             ]
         },
@@ -104,6 +125,12 @@
               },
               {
                 "Name": "anchorEntries",
+                "CallingType": "string",
+                "ReturnType": "json",
+                "Exposure": "public"
+              },
+              {
+                "Name": "listBridges",
                 "CallingType": "string",
                 "ReturnType": "json",
                 "Exposure": "public"

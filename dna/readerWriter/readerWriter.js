@@ -21,13 +21,13 @@ function holoTextWrite(text) {
 
 function holoTextRead(hash) {
   var r = get(hash, { GetMask: HC.GetMask.All });
-  debug("Local read for for " + hash + " : "+ r);
+  debug("Local read for " + hash + " : " + JSON.stringify(r));
   return get(hash, { Local: true })
 }
 
 function holoTextReadFromDHT(hash) {
-  var r = get(hash, {StatusMask: HC.Status.Default });
-  debug("DHT read for for " + hash + " : "+ r);
+  var r = get(hash, { GetMask: HC.GetMask.All });
+  debug("DHT read for " + hash + " : "+ JSON.stringify(r));
   return get(hash)
 }
 
@@ -42,7 +42,9 @@ function getAllLinks(dummy_arg) {
   var result = query({
     Return: {
       Hashes: true,
-      Entries: true
+      Entries: true,
+      GetMask: HC.GetMask.All,
+      StatusMask: HC.Status.Live + HC.Status.Deleted + HC.Status.Modified + HC.Status.Rejected
     },
     Constrain: {
       EntryTypes: ["holoLink"]
@@ -58,6 +60,61 @@ function createAnchorToText(hash) {
   debug("anchorHash "+ anchorHash);
   return JSON.parse(anchorHash);
 }
+
+function holoTextUpdate(args) {
+  debug("Hash to replace is " + args.replaces.toString());
+  var hash = update('holoText', args.newText, args.replaces.toString());
+  debug("Update hash is " + hash);
+  return hash;
+}
+
+function listBridges(dummy_arg) {
+  debug(JSON.stringify(getBridges()));
+  debug(JSON.stringify(App));
+  debug(JSON.stringify(App.Agent));
+  debug(JSON.stringify(App.Key));
+  debug(get(App.Agent.Hash, { GetMask: HC.GetMask.All }));
+  debug(get(App.Key.Hash, { GetMask: HC.GetMask.All }));
+  return 0;
+}
+
+function getAllTexts(dummy_arg) {
+  var result = query({
+    Return: {
+      Hashes: true,
+      Entries: true,
+      Stautus: true,
+      GetMask: HC.GetMask.All,
+      StatusMask: HC.Status.Live + HC.Status.Deleted + HC.Status.Modified + HC.Status.Rejected
+    },
+    Constrain: {
+      EntryTypes: ["holoText"]
+    }
+  });
+  debug(result);
+  return 0;
+}
+
+function receive(from, msg) {
+  var type = msg.type;
+  if (type == "ping") {
+    return "Return value from receive"
+  }
+  return "unknown type"
+}
+
+// Asynchronous send:
+function asyncPing(message, id) {
+  debug("async result of message id " + id + " was: " + JSON.stringify(message))
+}
+
+
+function sendReceiveCheck() {
+  // Sending message to itself
+  send(App.Key.Hash, {type: "ping"}, {Callback: { Function: "asyncPing", ID:"123"}});
+  return 0;
+}
+
 
 function validateText(text) {
   return text.length <= 140
@@ -77,5 +134,10 @@ function validatePut(entry_type, entry) {
 
 function validateLink() {
   // This function is neccessary for links to work
+  return true;
+}
+
+function validateMod() {
+  // This function is neccessary for updates to work
   return true;
 }

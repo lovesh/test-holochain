@@ -50,6 +50,13 @@
             "Output": "Another text, little longer."
         },
         {
+            "Convey": "write one more holoText entry",
+            "Zome": "readerWriter",
+            "FnName": "holoTextWrite",
+            "Input": "Another text, little longer.",
+            "Output": "%h1%"
+        },
+        {
             "Convey": "find links by agent",
             "Zome": "readerWriter",
             "FnName": "getHoloTextLinks",
@@ -64,11 +71,70 @@
             "Output": 0
         },
         {
+            "Convey": "get all texts",
+            "Zome": "readerWriter",
+            "FnName": "getAllTexts",
+            "Input": "%key%",
+            "Output": 0
+        },
+        {
+            "Convey": "Update holoText entry",
+            "Zome": "readerWriter",
+            "FnName": "holoTextUpdate",
+            "Input": {
+                "newText": "Different text, little longer.", 
+                "replaces": "%h1%"
+            },
+            "Output": "%h%"
+        },
+        {
+            "Convey": "read a holoText entry from DHT",
+            "Zome": "readerWriter",
+            "FnName": "holoTextReadFromDHT",
+            "Input": "%h2%",
+            "Output": "Different text, little longer."
+        },
+        {
+            "Convey": "get all texts",
+            "Zome": "readerWriter",
+            "FnName": "getAllTexts",
+            "Input": "%key%",
+            "Output": 0
+        },
+        {
+            "Convey": "get all links",
+            "Zome": "readerWriter",
+            "FnName": "getAllLinks",
+            "Input": "%key%",
+            "Output": 0
+        },
+        {
+            "Convey": "read a holoText entry from local chain",
+            "Zome": "readerWriter",
+            "FnName": "holoTextRead",
+            "Input": "%h2%",
+            "Output": "Another text, little longer."
+        },
+        {
             "Convey": "create anchor",
             "Zome": "readerWriter",
             "FnName": "createAnchorToText",
             "Input": "%h1%",
             "Output": "%h1%"
+        },
+        {
+            "Convey":"List bridges",
+            "Zome": "readerWriter",
+            "FnName": "listBridges",
+            "Input": "test",
+            "Output": 0
+        },
+        {
+            "Convey":"send Receive Check",
+            "Zome": "readerWriter",
+            "FnName": "sendReceiveCheck",
+            "Input": "test",
+            "Output": 0
         }
     ]
 }

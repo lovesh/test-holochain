@@ -58,6 +58,13 @@
         "Output": {
             "entries": [{"anchorType": "test", "anchorText": "Phil"}, {"anchorType": "test", "anchorText": "Up the hill"}]
         }
+    },
+    {
+        "Convey":"List bridges",
+        "Zome": "anchors",
+        "FnName": "listBridges",
+        "Input": "test",
+        "Output": 0
     }
   ]
 }
